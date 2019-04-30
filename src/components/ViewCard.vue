@@ -1,0 +1,28 @@
+<template>
+    <v-card flat tile style="padding-left:5px; padding-right: 5px;">
+        <v-img :src="animal.url" height="400px" class="white--text" style="text-align: center; text-shadow: 2px 2px 4px #000000;">
+            <h3 class="headline mb-0">{{animal.name}}</h3>
+        </v-img>
+        <v-card-title primary-title>
+            <div >
+                <h3 class="headline mb-0">{{animal.name}}</h3>
+                <ul>
+                    <li>ID: {{animal._id}}</li>
+                    <li>Emotion: {{animal.emotion}}</li>
+                    <li>Description: {{animal.description}}</li>
+                    <li>Genus: {{animal.genus}}</li>
+                </ul>
+            </div>
+        </v-card-title>
+    </v-card>
+</template>
+
+<script>
+export default {
+    
+}
+</script>
+
+<style scoped>
+
+</style>

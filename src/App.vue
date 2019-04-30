@@ -18,17 +18,20 @@
 
     <v-content>
       <HelloWorld/>
+      <Films/>
     </v-content>
   </v-app>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld'
+import Films from './components/Films'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    Films
   },
   data () {
     return {
