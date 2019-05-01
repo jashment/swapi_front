@@ -1,25 +1,27 @@
 <template>
     <div>
-        <h1 style="text-align: center;">Films</h1>
-        <v-btn @click="titleSort()">Sort By Title</v-btn>
-        <v-btn @click="episodeSort()">Sort By Episode Number</v-btn>
-        <v-btn @click="releaseSort()">Sort By Release Date</v-btn>
-        <v-container grid-list-xs>
+        <div style="text-align: center;">
+            
+            <h1 style="font-size: 3em;">Star Wars Films</h1>
+            <v-img src="https://cdn.pixabay.com/photo/2017/06/03/18/21/star-wars-2369317_1280.png"></v-img>
+            <v-btn @click="titleSort()">Sort By Title</v-btn>
+            <v-btn @click="episodeSort()">Sort By Episode Number</v-btn>
+            <v-btn @click="releaseSort()">Sort By Release Date</v-btn>
+        </div>
+        <v-container grid-list-md style="text-align: center;">
           <v-layout row wrap>
 
-            <v-flex v-for="films in SWArray" :key="films.title" xs4>
+            <v-flex v-for="films in SWArray" :key="films.title" xs12>
               <v-card>
                 <v-card-title primary-title>
-                  <div>
-                    <h3 class="headline mb-0">{{films.title}}</h3>
-                    <v-list two-line>
-                    <v-list-tile-content>
-                        <v-list-tile-title>{{films.episode_id}}</v-list-tile-title>
-                        <v-list-tile-sub-title>Episode</v-list-tile-sub-title>
-                        <v-list-tile-title>{{films.release_date}}</v-list-tile-title>
-                        <v-list-tile-sub-title>Release Date</v-list-tile-sub-title>
-                    </v-list-tile-content>
-                    </v-list>
+                  <div style="margin: auto; width: 100%">
+                    <h1 style="text-align: center; font-size: 2.5em;">{{films.title}}</h1>
+                    <v-card two-line>
+                    <v-card-title>
+                        <v-card-text style="font-size: 1.5em;">Episode: {{films.episode_id}}</v-card-text>
+                        <v-card-text style="font-size: 1.3em;">Release Date: {{films.release_date}}</v-card-text>
+                    </v-card-title>
+                    </v-card>
                     <hr>
                       <v-list class="animated fadeInDown">View Details
                         <v-list-group>
@@ -43,9 +45,9 @@
         </v-container>
         <!-- {{SWArray.sort(function(a, b){return a.title - b.title})}}
         <br>
-        {{SWArray.sort(function(a, b){return a.episode_id - b.episode_id})}} -->
+        {{SWArray.sort(function(a, b){return a.episode_id - b.episode_id})}}
         <br>
-        {{SWArray.sort(function(a, b){return a.release_date - b.release_date})}}
+        {{SWArray.sort(function(a, b){return a.release_date - b.release_date})}} -->
     </div>
 </template>
 
