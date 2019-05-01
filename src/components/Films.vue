@@ -3,7 +3,7 @@
         <div style="text-align: center;">
             
             <h1 style="font-size: 3em;">Star Wars Films</h1>
-            <v-img src="https://cdn.pixabay.com/photo/2017/06/03/18/21/star-wars-2369317_1280.png"></v-img>
+            <v-img :src="images.lightsaber"></v-img>
             <v-btn @click="titleSort()">Sort By Title</v-btn>
             <v-btn @click="episodeSort()">Sort By Episode Number</v-btn>
             <v-btn @click="releaseSort()">Sort By Release Date</v-btn>
@@ -57,6 +57,13 @@ import {axiosMixin} from '../assets/axiosMixin.js'
 export default {
     name: 'Films',
     mixins: [axiosMixin],
+    data() {
+            return {
+                images: {
+                    lightsaber: require('../images/star-wars-2369317_1920.png')
+                }
+            }
+        },
     created () {
         console.log(films)
     },
