@@ -1,5 +1,7 @@
 # swapi_front
 
+Project built with VueJS and Vuetify.  Calls to the SWAPI.CO API to get films.  Project by Jordan Ashment.
+
 ## Project setup
 ```
 npm install
