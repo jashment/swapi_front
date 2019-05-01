@@ -7,10 +7,9 @@
             <div >
                 <h3 class="headline mb-0">{{animal.name}}</h3>
                 <ul>
-                    <li>ID: {{animal._id}}</li>
-                    <li>Emotion: {{animal.emotion}}</li>
-                    <li>Description: {{animal.description}}</li>
-                    <li>Genus: {{animal.genus}}</li>
+                    <li>Title: {{films.title}}</li>
+                    <li>Episode Number: {{films.emotion}}</li>
+                    <li>Release Date: {{films.description}}</li>
                 </ul>
             </div>
         </v-card-title>
@@ -18,8 +17,14 @@
 </template>
 
 <script>
+import axios from 'axios'
+import {axiosMixin} from '../assets/axiosMixin.js'
 export default {
-    
+    name: 'Films',
+    mixins: [axiosMixin],
+    created () {
+        console.log(films)
+    }
 }
 </script>
 
