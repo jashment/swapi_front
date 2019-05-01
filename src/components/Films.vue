@@ -1,9 +1,9 @@
 <template>
     <div>
         <h1 style="text-align: center;">Films</h1>
-        <v-btn>Sort By Title</v-btn>
-        <v-btn>Sort By Episode Number</v-btn>
-        <v-btn>Sort By Release Date</v-btn>
+        <v-btn @click="titleSort()">Sort By Title</v-btn>
+        <v-btn @click="episodeSort()">Sort By Episode Number</v-btn>
+        <v-btn @click="releaseSort()">Sort By Release Date</v-btn>
         <v-container grid-list-xs>
           <v-layout row wrap>
 
@@ -43,9 +43,9 @@
         </v-container>
         <!-- {{SWArray.sort(function(a, b){return a.title - b.title})}}
         <br>
-        {{SWArray.sort(function(a, b){return a.episode_id - b.episode_id})}}
+        {{SWArray.sort(function(a, b){return a.episode_id - b.episode_id})}} -->
         <br>
-        {{SWArray.sort(function(a, b){return a.release_date - b.release_date})}} -->
+        {{SWArray.sort(function(a, b){return a.release_date - b.release_date})}}
     </div>
 </template>
 
@@ -58,15 +58,25 @@ export default {
     created () {
         console.log(films)
     },
-    computed: {
+    methods: {
         titleSort: function() {
-            return this.SWArray.sort(function(a, b){return a.title - b.title})
+            return this.SWArray.sort(function(a, b){
+                var x = a.title.toLowerCase()
+                var y = b.title.toLowerCase()
+                if (x < y) {return -1}
+                if (x > y) {return 1}
+                return 0
+                })
         },
         episodeSort: function() {
             return this.SWArray.sort(function(a, b){return a.episode_id - b.episode_id})
         },
         releaseSort: function() {
-            this.SWArray.sort(function(a, b){return a.release_date - b.release_date})
+            this.SWArray.sort(function(a, b){
+                if (a.release_date < b.release_date) {return -1}
+                if (a.release_date > b.release_date) {return 1}
+                return 0
+                })
         }
     }
 }
