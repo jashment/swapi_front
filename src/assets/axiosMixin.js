@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { get } from 'core-js/fn/dict'
 
 export const axiosMixin = {
     data() {
@@ -10,7 +9,7 @@ export const axiosMixin = {
     mounted() {
         axios({
             url: "/films/?page=1",
-            method: get,
+            method: 'get',
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"

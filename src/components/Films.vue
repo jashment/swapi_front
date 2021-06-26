@@ -1,38 +1,48 @@
 <template>
   <div>
-    <div style="text-align: center;">
-      <h1 style="font-size: 3em;">Star Wars Films</h1>
+    <div style="text-align: center">
+      <h1 style="font-size: 3em">Star Wars Films</h1>
       <v-img :src="images.lightsaber"></v-img>
       <v-btn @click="titleSort()">Sort By Title</v-btn>
       <v-btn @click="episodeSort()">Sort By Episode Number</v-btn>
       <v-btn @click="releaseSort()">Sort By Release Date</v-btn>
     </div>
-    <v-container grid-list-md style="text-align: center;">
+    <v-container grid-list-md style="text-align: center">
       <v-layout row wrap>
         <v-flex v-for="films in SWArray" :key="films.title" xs12>
           <v-card>
             <v-card-title primary-title>
               <div style="margin: auto; width: 100%">
-                <h1 style="text-align: center; font-size: 2.5em;">{{films.title}}</h1>
+                <h1 style="text-align: center; font-size: 2.5em">
+                  {{ films.title }}
+                </h1>
                 <v-card two-line>
                   <v-card-title>
-                    <v-card-text style="font-size: 1.5em;">Episode: {{films.episode_id}}</v-card-text>
-                    <v-card-text style="font-size: 1.3em;">Release Date: {{films.release_date}}</v-card-text>
+                    <v-card-text style="font-size: 1.5em"
+                      >Episode: {{ films.episode_id }}</v-card-text
+                    >
+                    <v-card-text style="font-size: 1.3em"
+                      >Release Date: {{ films.release_date }}</v-card-text
+                    >
                   </v-card-title>
                 </v-card>
                 <hr />
                 <v-list class="animated fadeInDown">
                   View Details
                   <v-list-group>
-                    <v-list-tile>Title: {{films.title}}</v-list-tile>
+                    <v-list-tile>Title: {{ films.title }}</v-list-tile>
                     <v-divider></v-divider>
-                    <v-list-tile>Episode Number: {{films.episode_id}}</v-list-tile>
+                    <v-list-tile
+                      >Episode Number: {{ films.episode_id }}</v-list-tile
+                    >
                     <v-divider></v-divider>
-                    <v-list-tile>Director: {{films.director}}</v-list-tile>
+                    <v-list-tile>Director: {{ films.director }}</v-list-tile>
                     <v-divider></v-divider>
-                    <v-list-tile>Producer: {{films.producer}}</v-list-tile>
+                    <v-list-tile>Producer: {{ films.producer }}</v-list-tile>
                     <v-divider></v-divider>
-                    <v-list-tile>Release Date: {{films.release_date}}</v-list-tile>
+                    <v-list-tile
+                      >Release Date: {{ films.release_date }}</v-list-tile
+                    >
                   </v-list-group>
                 </v-list>
               </div>
@@ -50,7 +60,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { axiosMixin } from "../assets/axiosMixin.js";
 export default {
   name: "Films",
@@ -62,9 +71,6 @@ export default {
       }
     };
   },
-  // created () {
-  //     console.log(films)
-  // },
   methods: {
     titleSort: function() {
       return this.SWArray.sort(function(a, b) {
